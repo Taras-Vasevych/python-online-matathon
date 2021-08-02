@@ -3,11 +3,11 @@ from itertools import chain
 
 def logger(fn):
     def inner(*args, **kwargs):
-        fn(*args, **kwargs)
+        ans = fn(*args, **kwargs)
         name = fn.__name__
         arguments = ', '.join(str(x) for x in chain(args, kwargs.values()))
         print(f'Executing of function {name} with arguments {arguments}...')
-        #return fn(*args, **kwargs)
+        return ans
     return inner
 
 @logger
