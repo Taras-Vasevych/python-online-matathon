@@ -19,7 +19,7 @@ def parse_user(output_file, *input_files):
         try:
             with open(file, 'r') as f:
                 data = json.load(f)
-        except:
+        except FileNotFoundError:
             logging.error(f'File {file} doesn\'t exists')
             continue
         if not isinstance(data, list):
