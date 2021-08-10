@@ -21,7 +21,8 @@ class DepartmentName(Exception):
     def __str__(self):
         return f"Department with id {self.key} doesn't exists"
     
-    
+
+
 def validate_json(data, schema):
     """Return True if data is valid, False othervise"""
     try:
@@ -36,10 +37,10 @@ def user_with_department(csv_file, user_json, department_json):
         "$schema": "http://json-schema.org/draft-06/schema#",
         "type": "array",
         "items": {
-            "$ref": "#/definitions/WelcomeElement"
+            "$ref": "#/definitions/UserElement"
         },
         "definitions": {
-            "WelcomeElement": {
+            "UserElement": {
                 "type": "object",
                 "additionalProperties": False,
                 "properties": {
@@ -58,18 +59,18 @@ def user_with_department(csv_file, user_json, department_json):
                     "id",
                     "name"
                 ],
-                "title": "WelcomeElement"
+                "title": "UserElement"
             }
         }
-    }    
+    }
     department_schema = {
         "$schema": "http://json-schema.org/draft-06/schema#",
         "type": "array",
         "items": {
-            "$ref": "#/definitions/WelcomeElement"
+            "$ref": "#/definitions/DepartmentElement"
         },
         "definitions": {
-            "WelcomeElement": {
+            "DepartmentElement": {
                 "type": "object",
                 "additionalProperties": False,
                 "properties": {
@@ -84,7 +85,7 @@ def user_with_department(csv_file, user_json, department_json):
                     "id",
                     "name"
                 ],
-                "title": "WelcomeElement"
+                "title": "DepartmentElement"
             }
         }
     }
